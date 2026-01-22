@@ -1,0 +1,57 @@
+---
+/**
+ * Lenis Smooth Scroll Component
+ *
+ * Provides buttery-smooth scroll experience using Lenis.
+ *
+ * Features:
+ * - Smooth wheel scrolling with configurable duration
+ * - Custom easing function for natural feel
+ * - Compatible with Astro view transitions
+ * - Accessible globally via window.lenis
+ *
+ * Configuration:
+ * - duration: Controls scroll animation speed (1.2s)
+ * - easing: Custom easing function for natural deceleration
+ * - smoothWheel: Enables smooth mouse wheel scrolling
+ * - wheelMultiplier: Adjusts scroll speed sensitivity
+ *
+ * Usage:
+ * Access the Lenis instance: window.lenis.scrollTo('#target')
+ */
+---
+
+<script>
+  import Lenis from 'lenis';
+
+  function initLenis() {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Store lenis instance globally for potential use
+    (window as Window & { lenis?: Lenis }).lenis = lenis;
+  }
+
+  // Initialize on page load
+  initLenis();
+
+  // Reinitialize after Astro view transitions
+  document.addEventListener('astro:after-swap', () => {
+    initLenis();
+  });
+</script>

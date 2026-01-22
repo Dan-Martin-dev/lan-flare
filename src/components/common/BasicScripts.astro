@@ -143,7 +143,7 @@ import { UI } from 'astrowind:config';
     });
   };
   const onPageShow = function () {
-    document.documentElement.classList.add('motion-safe:scroll-smooth');
+    // Removed native smooth scroll - Lenis handles scrolling
     const elem = document.querySelector('[data-aw-toggle-menu]');
     if (elem) {
       elem.classList.remove('expanded');
