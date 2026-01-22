@@ -3,3 +3,20 @@
 /// <reference types="astro/client" />
 /// <reference types="vite/client" />
 /// <reference types="../vendor/integration/types.d.ts" />
+
+interface ImportMetaEnv {
+  readonly PUBLIC_SITE_URL?: string;
+  readonly PUBLIC_GA_ID?: string;
+  // Add more environment variables as needed
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
+// Cloudflare runtime types
+type Runtime = import('@astrojs/cloudflare').Runtime<Env>;
+
+declare namespace App {
+  interface Locals extends Runtime {}
+}

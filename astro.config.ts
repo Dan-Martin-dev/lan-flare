@@ -72,7 +72,10 @@ export default defineConfig({
   ],
 
   image: {
-    domains: ['cdn.pixabay.com'],
+    domains: ['cdn.pixabay.com', 'images.unsplash.com'],
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
   },
 
   markdown: {
@@ -86,5 +89,17 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src'),
       },
     },
+    build: {
+      cssMinify: 'lightningcss',
+    },
+  },
+
+  build: {
+    inlineStylesheets: 'auto',
+  },
+
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
   },
 });

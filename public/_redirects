@@ -1,0 +1,8 @@
+# Redirects for Cloudflare Pages
+# See: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Redirect trailing slashes (if needed)
+# /old-page /new-page 301
+
+# SPA fallback for 404 (if needed for dynamic routes)
+# /* /index.html 200

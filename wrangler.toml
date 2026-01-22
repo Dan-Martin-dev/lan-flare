@@ -1,0 +1,33 @@
+name = "starry-solstice"
+compatibility_date = "2024-01-21"
+
+# Configuration for Cloudflare Pages
+pages_build_output_dir = "./dist"
+
+# Build configuration
+[build]
+command = "npm run build"
+cwd = "."
+
+# Environment variables (if needed)
+[vars]
+# Add your environment variables here
+
+# KV Namespaces (if you need key-value storage)
+# [[kv_namespaces]]
+# binding = "MY_KV"
+# id = "your-kv-namespace-id"
+
+# D1 Databases (if you need SQL databases)
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "your-database-name"
+# database_id = "your-database-id"
+
+# Analytics Engine (for analytics)
+# [analytics_engine_datasets]
+# binding = "ANALYTICS"
+
+# Assets configuration
+[assets]
+# Customize asset behavior if needed

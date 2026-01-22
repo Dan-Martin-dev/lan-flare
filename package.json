@@ -11,6 +11,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:cloudflare": "wrangler pages dev dist",
+    "deploy": "astro build && wrangler pages deploy dist",
+    "cf-typegen": "wrangler types",
     "astro": "astro",
     "check": "npm run check:astro && npm run check:eslint && npm run check:prettier",
     "check:astro": "astro check",
@@ -21,6 +24,7 @@
     "fix:prettier": "prettier -w ."
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.2",
     "@astrolib/analytics": "^0.6.1",
