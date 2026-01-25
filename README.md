@@ -25,7 +25,7 @@ Designed for speed, SEO, and developer experience—perfect for landing pages, S
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/lan-flare.git
+git clone https://github.com/Dan-Martin-dev/lan-flare.git
 cd lan-flare
 
 # Install dependencies
